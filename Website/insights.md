@@ -1,0 +1,9 @@
+# Design & Implementation Insights
+
+- **Color tokens:** Defined as CSS custom properties in `:root` — `--color-navy` (#0f1f3d, primary), `--color-bg` (#fbfbfd, background), `--color-text-secondary` (#5b6270, gray secondary text), and `--color-accent` (#8f8ce7, restrained lavender). An alternating `--color-bg-alt` (#f2f1f8) is used to visually separate sections (About vs. Background vs. Experience, etc.) without introducing new colors.
+- **Typography:** Manrope loaded for headings (`h1`–`h3`, nav logo, buttons) and Inter for body text, both via Google Fonts with system sans-serif fallbacks, matching the spec exactly.
+- **Layout approach:** Flexbox for the timeline/experience list and CSS Grid for the two-column Projects and Skills layouts, collapsing to a single column at the 900px breakpoint.
+- **Responsive strategy:** Mobile-first breakpoints at 900px (grid-to-single-column) and 600px (nav collapses into a toggleable hamburger menu). `overflow-x: hidden` on `body` plus `max-width: 100%` on images guards against horizontal overflow.
+- **JS usage:** Kept minimal per the "only if absolutely necessary" constraint — `script.js` only handles the mobile nav toggle (open/close + closing on link click). Smooth scrolling is handled purely in CSS via `scroll-behavior: smooth`.
+- **Experience vs. Projects:** Kept as clearly separate sections (`#experience` and `#projects`) per spec, with the internship description living only under Experience and the corresponding project ("Breast Tissue Density Classification") describing the technical work done during that internship.
+- **Interests:** Integrated as an accent-colored chip group inside the Skills section rather than a standalone section, since the spec asked for them to be "integrated naturally" rather than called out as a major section.
